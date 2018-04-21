@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
     android:keyWidth="20%p"
-    android:horizontalGap="10px"
-    android:verticalGap="10px"
+    android:horizontalGap="0px"
+    android:verticalGap="0px"
     android:keyHeight="60dp"
 >
     <Row>
-        <Key android:keyLabel="i j" android:codes="105,106" android:keyEdgeFlags="right"/>
+        <Key android:keyLabel="i j" android:codes="105,106" android:horizontalGap="60%p" android:keyEdgeFlags="left"/>
         <Key android:keyLabel="q r" android:codes="113,114" android:keyEdgeFlags="right"/>
     </Row>
     <Row>
-        <Key android:keyLabel="DEL" android:codes="-5" android:isRepeatable="true" android:keyEdgeFlags="left"/>
+        <Key android:keyLabel="DEL" android:codes="-5" android:isRepeatable="true" android:horizontalGap="20%p"/>
         <Key android:keyLabel="g h" android:codes="103,104"/>
         <Key android:keyLabel="o p" android:codes="111,112"/>
         <Key android:keyLabel="y z" android:codes="121,122" android:keyEdgeFlags="right"/>
     </Row>
     <Row>
-        <Key android:keyLabel="d e f" android:codes="100,101,102"/>
+        <Key android:keyLabel="d e f" android:codes="100,101,102" android:horizontalGap="40%p"/>
         <Key android:keyLabel="m n" android:codes="109,110"/>
-        <Key android:keyLabel="v w x" android:codes="112" android:keyEdgeFlags="right" />
+        <Key android:keyLabel="v w x" android:codes="118,119,120" android:keyEdgeFlags="right" />
     </Row>
     <Row>
-        <Key android:keyLabel="a b c" android:codes="-4" android:keyEdgeFlags="left"/>
-        <Key android:keyLabel="k l" android:codes="100,101,102"/>
-        <Key android:keyLabel="s t u" android:codes="109,110" android:keyEdgeFlags="right"/>
+        <Key android:keyLabel="a b c" android:codes="97,98,99" android:horizontalGap="40%p"/>
+        <Key android:keyLabel="k l" android:codes="107,108"/>
+        <Key android:keyLabel="s t u" android:codes="115,116,117" android:keyEdgeFlags="right"/>
         // setting button
         <!--<Key android:keyLabel="v w x" android:codes="112" android:keyEdgeFlags="right" />-->
     </Row>
     <Row android:rowEdgeFlags="bottom">
-        <Key android:keyLabel="DONE" android:codes="-4" android:keyEdgeFlags="left"/>
+        <Key android:keyLabel="DONE" android:codes="-4" android:horizontalGap="20%p"/>
         <!--<Key android:keyLabel="," android:codes="44" android:keyWidth="10%p" android:keyEdgeFlags="left"/>-->
-        <Key android:keyLabel="SPACE" android:codes="32" android:isRepeatable="true" android:keyEdgeFlags="left"/>
+        <Key android:keyLabel="SPACE" android:codes="32" android:keyWidth="40%p" android:isRepeatable="true" android:keyEdgeFlags="left"/>
         <Key android:keyLabel="CAPS" android:codes="-1" android:keyEdgeFlags="right" />
     </Row>
 </Keyboard>
