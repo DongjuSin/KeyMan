@@ -2,12 +2,12 @@
 <Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
     android:keyWidth="20%p"
     android:horizontalGap="0px"
-    android:verticalGap="10px"
-    android:keyHeight="60dp"
+    android:verticalGap="0px"
+    android:keyHeight="10%p"
 >
     <Row>
         <Key android:keyLabel="DEL" android:codes="-5" android:isRepeatable="true" android:horizontalGap="20%p"  android:keyEdgeFlags="left"/>
-        <Key android:keyLabel="i j" android:codes="105,106" android:keyWidth="25%p"/>
+        <Key android:keyLabel="i j" android:codes="105,106" android:keyWidth="25%p" android:keyBackground="@drawable/circle"/>
         <Key android:keyLabel="q r" android:codes="113,114" android:keyWidth="35%p" android:keyEdgeFlags="right"/>
     </Row>
     <Row>
