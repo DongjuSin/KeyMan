@@ -21,20 +21,15 @@ public class keymankeyboard extends InputMethodService implements KeyboardView.O
     @Override
     public View onCreateInputView() {
         kv = (KeyboardView)getLayoutInflater().inflate(R.layout.keyboard, null);
+        // kv = (KeyboardView)getLayoutInflater().inflate(R.layout.keyboard, parent, false);
         keyboard = new Keyboard(this, R.xml.keyarrange);
+        kv.setKeyboard(keyboard);
         kv.setOnKeyboardActionListener(this);
+        kv.invalidateAllKeys();
+
+        // keyboard = new Keyboard(this, R.xml.keyarrange);
+        // kv.setOnKeyboardActionListener(this);
         return kv;
-
-    }
-
-    @Override
-    public void onPress (int i) {
-
-    }
-
-    @Override
-    public void onRelease (int i) {
-
     }
 
     @Override
@@ -83,7 +78,17 @@ public class keymankeyboard extends InputMethodService implements KeyboardView.O
     }
 
     @Override
-    public void onText (CharSequence charSequence) {
+    public void onPress (int primaryCode) {
+
+    }
+
+    @Override
+    public void onRelease (int primaryCode) {
+
+    }
+
+    @Override
+    public void onText (CharSequence text) {
 
     }
 
