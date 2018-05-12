@@ -15,6 +15,7 @@ public class keymankeyboard extends InputMethodService implements KeyboardView.O
 
     private KeyboardView kv;
     private Keyboard keyboard;
+    private keyView mInputView;
 
     private boolean isCaps = false;
 
@@ -31,6 +32,21 @@ public class keymankeyboard extends InputMethodService implements KeyboardView.O
         // kv.setOnKeyboardActionListener(this);
         return kv;
     }
+    /*@Override
+    public View onCreateInputView() {
+        mInputView = new keyView(this);
+
+        kv = (KeyboardView)getLayoutInflater().inflate(R.layout.keyboard, null);
+        // kv = (KeyboardView)getLayoutInflater().inflate(R.layout.keyboard, parent, false);
+        keyboard = new Keyboard(this, R.xml.keyarrange);
+        kv.setKeyboard(keyboard);
+        mInputView.setOnKeyboardActionListener(this);
+        kv.invalidateAllKeys();
+
+        // keyboard = new Keyboard(this, R.xml.keyarrange);
+        // kv.setOnKeyboardActionListener(this);
+        return kv;
+    }*/
 
     @Override
     public void onKey (int primaryCode, int[] ints) {
