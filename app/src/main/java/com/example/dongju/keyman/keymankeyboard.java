@@ -8,6 +8,7 @@ import android.inputmethodservice.KeyboardView;
 import android.media.AudioManager;
 import android.os.IBinder;
 import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputConnection;
 
@@ -15,7 +16,6 @@ public class keymankeyboard extends InputMethodService implements KeyboardView.O
 
     private KeyboardView kv;
     private Keyboard keyboard;
-    private keyView mInputView;
 
     private boolean isCaps = false;
 
@@ -32,21 +32,6 @@ public class keymankeyboard extends InputMethodService implements KeyboardView.O
         // kv.setOnKeyboardActionListener(this);
         return kv;
     }
-    /*@Override
-    public View onCreateInputView() {
-        mInputView = new keyView(this);
-
-        kv = (KeyboardView)getLayoutInflater().inflate(R.layout.keyboard, null);
-        // kv = (KeyboardView)getLayoutInflater().inflate(R.layout.keyboard, parent, false);
-        keyboard = new Keyboard(this, R.xml.keyarrange);
-        kv.setKeyboard(keyboard);
-        mInputView.setOnKeyboardActionListener(this);
-        kv.invalidateAllKeys();
-
-        // keyboard = new Keyboard(this, R.xml.keyarrange);
-        // kv.setOnKeyboardActionListener(this);
-        return kv;
-    }*/
 
     @Override
     public void onKey (int primaryCode, int[] ints) {
@@ -69,7 +54,6 @@ public class keymankeyboard extends InputMethodService implements KeyboardView.O
                 char code = (char)primaryCode;
                 if(Character.isLetter(code) && isCaps){
                     code = Character.toUpperCase(code);
-
                 }
                 ic.commitText(String.valueOf(code),1);
         }
@@ -91,6 +75,11 @@ public class keymankeyboard extends InputMethodService implements KeyboardView.O
                 break;
             default: am.playSoundEffect(AudioManager.FX_KEYPRESS_SPACEBAR);
         }
+    }
+
+    @Override
+    public boolean onGenericMotionEvent(MotionEvent event) {
+        return true;
     }
 
     @Override
