@@ -1,18 +1,18 @@
 package com.example.dongju.keyman;
 
-import android.app.Service;
-import android.content.Intent;
 import android.inputmethodservice.InputMethodService;
 import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
 import android.media.AudioManager;
-import android.os.IBinder;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputConnection;
 
 public class keymankeyboard extends InputMethodService implements KeyboardView.OnKeyboardActionListener {
+
+    private int y1, y2;
+    private int InitialPrimaryCode;
 
     private KeyboardView kv;
     private Keyboard keyboard;
@@ -33,30 +33,24 @@ public class keymankeyboard extends InputMethodService implements KeyboardView.O
         return kv;
     }
 
+    public boolean onTouchEvent(MotionEvent event) {
+        switch(event.getAction() & MotionEvent.ACTION_MASK) {
+            case MotionEvent.ACTION_DOWN:
+                //x1 = (int) (event.getX());
+                y1 = (int) (event.getY());
+                break;
+
+            case MotionEvent.ACTION_UP:
+                //x2 = (int) (event.getX());
+                y2 = (int) (event.getY());
+                break;
+        }
+        return true;
+    }
+
     @Override
     public void onKey (int primaryCode, int[] ints) {
-        InputConnection ic = getCurrentInputConnection();
-        playClick(primaryCode);
-        switch (primaryCode)
-        {
-            case Keyboard.KEYCODE_DELETE:
-                ic.deleteSurroundingText(1,0);
-                break;
-            case Keyboard.KEYCODE_SHIFT:
-                isCaps = !isCaps;
-                keyboard.setShifted(isCaps);
-                kv.invalidateAllKeys();
-                break;
-            case Keyboard.KEYCODE_DONE:
-                ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_ENTER));
-                break;
-            default:
-                char code = (char)primaryCode;
-                if(Character.isLetter(code) && isCaps){
-                    code = Character.toUpperCase(code);
-                }
-                ic.commitText(String.valueOf(code),1);
-        }
+
     }
 
     private void playClick(int keyCode) {
@@ -84,12 +78,38 @@ public class keymankeyboard extends InputMethodService implements KeyboardView.O
 
     @Override
     public void onPress (int primaryCode) {
-
+        playClick(primaryCode);
+        InitialPrimaryCode = primaryCode;
     }
 
     @Override
     public void onRelease (int primaryCode) {
-
+        InputConnection ic = getCurrentInputConnection();
+        switch (InitialPrimaryCode)
+        {
+            case Keyboard.KEYCODE_DELETE:
+                ic.deleteSurroundingText(1,0);
+                break;
+            case Keyboard.KEYCODE_SHIFT:
+                isCaps = !isCaps;
+                keyboard.setShifted(isCaps);
+                kv.invalidateAllKeys();
+                break;
+            case Keyboard.KEYCODE_DONE:
+                ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_ENTER));
+                break;
+            default:
+                char code = (char)InitialPrimaryCode;
+                if(Character.isLetter(code) && isCaps){
+                    code = Character.toUpperCase(code);
+                }
+                //if(y2 > y1+20){
+                    ic.commitText(String.valueOf(code+1),1);
+                //}
+                //else{
+                    //ic.commitText(String.valueOf(code),1);
+                //}
+        }
     }
 
     @Override
