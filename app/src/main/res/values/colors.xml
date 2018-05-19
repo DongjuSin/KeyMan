@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#AFFFAF</color>
+    <color name="colorPrimaryDark">#CFCFCF</color>
+    <color name="colorAccent">#FF8081</color>
 
-    <color name="keyboard_background_color">#34495e</color>
-    <color name="keyboard_divider">#2c3e50</color>
-    <color name="keyboard_pressed">#95a5a6</color>
+    <color name="keyboard_background_color">#AFAF00</color>
+    <color name="keyboard_divider">#000000</color>
+    <color name="keyboard_pressed">#5555A5</color>
 </resources>
