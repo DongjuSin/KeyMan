@@ -106,8 +106,15 @@ public class keymankeyboard extends InputMethodService implements KeyboardView.O
             case 104: // h, only downward swipe is.
             case 108: // l
             case 110: // n
-            case 114: // r
                 if(primaryCode < InitialPrimaryCode){ //swipe down!
+                    code = (char)(InitialPrimaryCode -1);
+                }
+                else{
+                    code = (char)InitialPrimaryCode;
+                }
+                break;
+            case 114: // r, for temporary solution below.
+                if(primaryCode != InitialPrimaryCode){ //swipe down!
                     code = (char)(InitialPrimaryCode -1);
                 }
                 else{
