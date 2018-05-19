@@ -24,6 +24,7 @@ public class keymankeyboard extends InputMethodService implements KeyboardView.O
         // kv = (KeyboardView)getLayoutInflater().inflate(R.layout.keyboard, parent, false);
         keyboard = new Keyboard(this, R.xml.keyarrange);
         kv.setKeyboard(keyboard);
+        kv.setPreviewEnabled(false);
         kv.setOnKeyboardActionListener(this);
         kv.invalidateAllKeys();
 
