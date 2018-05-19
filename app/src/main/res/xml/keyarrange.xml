@@ -8,28 +8,28 @@
         <!--<Key android:keyLabel="DEL" android:codes="-5" android:isRepeatable="true" android:keyWidth="25%p" android:horizontalGap="25%p"  android:keyEdgeFlags="left"/>-->
         <!--<Key android:keyLabel="i j" android:codes="105,106" android:keyWidth="25%p" android:horizontalGap="50%p"/>-->
         <!--<Key android:keyLabel="q r" android:codes="113,114" android:keyWidth="25%p" />-->
-        <Key android:keyIcon="@drawable/key_ij" android:codes="105,106" android:horizontalGap="60%p"/>
+        <Key android:keyIcon="@drawable/key_ij" android:codes="105,106" android:horizontalGap="50%p"/>
         <Key android:keyIcon="@drawable/key_qr" android:codes="114,113"/>
     </Row>
     <Row>
         <!--<Key android:keyLabel="DEL" android:codes="-5" android:isRepeatable="true" android:horizontalGap="17%p"/>-->
-        <Key android:keyIcon="@drawable/key_gh" android:codes="104,103" android:horizontalGap="25%p"/>
+        <Key android:keyIcon="@drawable/key_gh" android:codes="104,103" android:horizontalGap="40%p"/>
         <Key android:keyIcon="@drawable/key_op" android:codes="111,112"/>
         <Key android:keyIcon="@drawable/key_yz" android:codes="121,122" android:keyEdgeFlags="right"/>
     </Row>
     <Row>
         <!--<Key android:keyLabel="DEL" android:codes="-5" android:isRepeatable="true" android:horizontalGap="13%p"/>-->
-        <Key android:keyIcon="@drawable/key_def" android:codes="101,100,102" android:horizontalGap="15%p"/>
+        <Key android:keyIcon="@drawable/key_def" android:codes="101,100,102" android:horizontalGap="32%p"/>
         <Key android:keyIcon="@drawable/key_mn" android:codes="110,109"/>
         <Key android:keyIcon="@drawable/key_vwx" android:codes="119,118,120" android:keyEdgeFlags="right"/>
         <!--<Key android:keyLabel="*" android:keyWidth="9%p" android:keyEdgeFlags="right" />-->
     </Row>
     <Row>
         <!--<Key android:keyLabel="DONE" android:codes="-4" android:horizontalGap="10%p"/>-->
-        <Key android:keyIcon="@drawable/key_abc" android:codes="97,98,99" android:horizontalGap="10%p"/>
+        <Key android:keyIcon="@drawable/key_abc" android:codes="97,98,99" android:horizontalGap="28%p"/>
         <Key android:keyIcon="@drawable/key_kl" android:codes="108,107"/>
         <Key android:keyIcon="@drawable/key_stu" android:codes="116,115,117"/>
-        <Key android:keyIcon="@drawable/keyboard_backspace_2x" android:codes="-5" android:isRepeatable="true"/>
+        <Key android:keyIcon="@drawable/keyboard_backspace_2x" android:codes="-5" android:keyWidth="10%p" android:isRepeatable="true"/>
         <!--<key android:keyLabel="*" android:keyWidth="11%p" android:keyEdgeFlags="right"/>-->
         // setting button
         <!--<Key android:keyLabel="v w x" android:codes="112" android:keyEdgeFlags="right" />-->
@@ -37,8 +37,8 @@
     <Row android:rowEdgeFlags="bottom">
         <!--<Key android:keyLabel="DONE" android:codes="-4" android:horizontalGap="8%p"/>-->
         <!--<Key android:keyLabel="," android:codes="44" android:keyWidth="10%p" android:keyEdgeFlags="left"/>-->
-        <Key android:keyIcon="@drawable/keyboard_capslock_2x" android:codes="-1" android:horizontalGap="10%p"/>
+        <Key android:keyIcon="@drawable/keyboard_capslock_2x" android:codes="-1" android:keyWidth="10%p" android:horizontalGap="30%p"/>
         <Key android:keyIcon="@drawable/keyboard_spacebar_2x" android:codes="32" android:keyWidth="40%p" android:isRepeatable="true"/>
-        <Key android:keyIcon="@drawable/keyboard_return_2x" android:codes="-4"/>
+        <Key android:keyIcon="@drawable/keyboard_return_2x" android:codes="-4" android:keyWidth="15%p"/>
     </Row>
 </Keyboard>
