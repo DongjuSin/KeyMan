@@ -39,6 +39,6 @@
         <!--<Key android:keyLabel="," android:codes="44" android:keyWidth="10%p" android:keyEdgeFlags="left"/>-->
         <Key android:keyIcon="@drawable/keyboard_capslock_2x" android:codes="-1" android:keyWidth="10%p" android:horizontalGap="30%p"/>
         <Key android:keyIcon="@drawable/keyboard_spacebar_2x" android:codes="32" android:keyWidth="40%p" android:isRepeatable="true"/>
-        <Key android:keyIcon="@drawable/keyboard_return_2x" android:codes="-4" android:keyWidth="15%p"/>
+        <Key android:keyIcon="@drawable/keyboard_return_2x" android:codes="-4" android:keyWidth="10%p"/>
     </Row>
 </Keyboard>
