@@ -67,11 +67,6 @@ public class keymankeyboard extends InputMethodService implements KeyboardView.O
     }
 
     @Override
-    public boolean onGenericMotionEvent(MotionEvent event) {
-        return true;
-    }
-
-    @Override
     public void onPress (int primaryCode) {
         InitialPrimaryCode = primaryCode;
         Vibe();
