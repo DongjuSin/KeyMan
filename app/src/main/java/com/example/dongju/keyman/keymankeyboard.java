@@ -4,6 +4,9 @@ import android.inputmethodservice.InputMethodService;
 import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
 import android.media.AudioManager;
+import android.os.Build;
+import android.os.Vibrator;
+import android.os.VibrationEffect;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -38,6 +41,13 @@ public class keymankeyboard extends InputMethodService implements KeyboardView.O
         playClick(primaryCode);
     }
 
+    private void Vibe(){
+        if (Build.VERSION.SDK_INT >= 26) {
+            ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(VibrationEffect.createOneShot(30, VibrationEffect.DEFAULT_AMPLITUDE));
+        } else {
+            ((Vibrator) getSystemService(VIBRATOR_SERVICE)).vibrate(30);
+        }
+    }
     private void playClick(int keyCode) {
         AudioManager am = (AudioManager)getSystemService(AUDIO_SERVICE);
         switch(keyCode)
@@ -64,11 +74,13 @@ public class keymankeyboard extends InputMethodService implements KeyboardView.O
     @Override
     public void onPress (int primaryCode) {
         InitialPrimaryCode = primaryCode;
+        Vibe();
     }
 
     @Override
     public void onRelease (int primaryCode) {
         InputConnection ic = getCurrentInputConnection();
+
         char code;
         switch (InitialPrimaryCode)
         {
@@ -87,9 +99,11 @@ public class keymankeyboard extends InputMethodService implements KeyboardView.O
             case 97: // a, b, c
                 if(primaryCode == 101){ // swipe up to e
                     code = (char)(InitialPrimaryCode +1);
+                    Vibe();
                 }
                 else if(InitialPrimaryCode < primaryCode) { // swipe up further
                     code = (char) (InitialPrimaryCode +2);
+                    Vibe();
                 }
                 else {
                     code = (char)InitialPrimaryCode;
@@ -98,6 +112,7 @@ public class keymankeyboard extends InputMethodService implements KeyboardView.O
             case 105: //i, j
                 if(primaryCode < InitialPrimaryCode){ // swipe down...
                     code = (char)(InitialPrimaryCode +1);
+                    Vibe();
                 }
                 else{
                     code = (char)InitialPrimaryCode;
@@ -108,6 +123,7 @@ public class keymankeyboard extends InputMethodService implements KeyboardView.O
             case 110: // n
                 if(primaryCode < InitialPrimaryCode){ //swipe down!
                     code = (char)(InitialPrimaryCode -1);
+                    Vibe();
                 }
                 else{
                     code = (char)InitialPrimaryCode;
@@ -116,6 +132,7 @@ public class keymankeyboard extends InputMethodService implements KeyboardView.O
             case 114: // r, for temporary solution below.
                 if(primaryCode != InitialPrimaryCode){ //swipe down!
                     code = (char)(InitialPrimaryCode -1);
+                    Vibe();
                 }
                 else{
                     code = (char)InitialPrimaryCode;
@@ -124,14 +141,16 @@ public class keymankeyboard extends InputMethodService implements KeyboardView.O
             case 111: // o, only upward swipe is.
                 if(InitialPrimaryCode < primaryCode) { // swipe up
                     code = (char)(InitialPrimaryCode +1);
+                    Vibe();
                 }
                 else{
                     code = (char)InitialPrimaryCode;
                 }
                 break;
-            case 121: // y.. it's with only upward swipe, but no keys above. so this is a temporary solution, making r key wider.
+            case 121: // y.. it's with only upward swipe, but there are no keys above. so this is a temporary solution, making r key wider.
                 if(primaryCode == 114){ // swipe up to r
                     code = (char)(InitialPrimaryCode +1);
+                    Vibe();
                 }
                 else {
                     code = (char)InitialPrimaryCode;
@@ -140,9 +159,11 @@ public class keymankeyboard extends InputMethodService implements KeyboardView.O
             default:
                 if(InitialPrimaryCode < primaryCode){ // swipe up!
                     code = (char)(InitialPrimaryCode +1);
+                    Vibe();
                 }
                 else if(primaryCode < InitialPrimaryCode){ // swipe down!
                     code = (char)(InitialPrimaryCode -1);
+                    Vibe();
                 }
                 else{
                     code = (char)InitialPrimaryCode;
